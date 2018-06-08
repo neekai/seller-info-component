@@ -3,4 +3,11 @@ import { render } from "react-dom";
 import SellerInfo from "./components/SellerInfo.jsx";
 import OtherProducts from "./components/OtherProducts.jsx";
 
-render(<OtherProducts />, document.getElementById("app"));
+render(
+  <div>
+    <SellerInfo />
+    <br />
+    <OtherProducts />
+  </div>,
+  document.getElementById("app")
+);

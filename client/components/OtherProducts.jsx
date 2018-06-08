@@ -9,7 +9,8 @@ class OtherProducts extends Component {
     this.state = {
       sellers: false,
       images: false,
-      products: false
+      products: false,
+      compile: false
     };
   }
   componentDidMount() {
