@@ -10,7 +10,6 @@ const otherProductsCtrl = require("../controller/otherProductsCtrl");
 // SELLER //
 router.route("/api/sellers").get(sellerInfoCtrl.sellers.get);
 router.route("/api/sellerLiked/:id").patch(sellerInfoCtrl.sellers.patch);
-// router.route("/api/sellers").post(sellerInfoCtrl.sellers.post);
 
 // SELLER RATINGS //
 router.route("/api/sellerRatings/:id").get(sellerInfoCtrl.sellerRatings.get);

@@ -11,7 +11,6 @@ class SellerInfo extends Component {
     };
   }
   componentDidMount() {
-    // Enable Once Paths And DB Are Made
     this.sellers();
     this.sellerRatings();
     this.like;
