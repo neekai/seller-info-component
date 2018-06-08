@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import styles from "../styles/styles.css";
+import styles from "../styles/SellerInfoStyles.css";
 
 class SellerInfo extends Component {
   constructor() {
@@ -14,6 +14,7 @@ class SellerInfo extends Component {
     // Enable Once Paths And DB Are Made
     this.sellers();
     this.sellerRatings();
+    this.like;
   }
   sellers() {
     axios
@@ -26,17 +27,14 @@ class SellerInfo extends Component {
     axios
       .get(`/api/sellerRatings/${this.state.sellers.id}`)
       .then(res => this.setState({ sellerRatings: res.data }))
-      .then(() => console.log(this.state.sellerRatings))
+      .then(() => console.log(`Current Ratings ${this.state.sellerRatings}`))
       .catch(err => `Error Finding Seller Ratings ${err}`);
   }
   like(id) {
     axios
       .patch(`/api/sellerLiked/${id}`)
-      .then(res => console.log(`Liked User By  ID ${id}`))
+      .then(res => this.setState({ sellers: [res.data] }))
       .catch(err => console.log(`Error Liking Seller ${err}`));
-  }
-  isLiked() {
-    this.state.sellerLiked.isLiked ? "♥" : "♡";
   }
   render() {
     return (
@@ -50,11 +48,11 @@ class SellerInfo extends Component {
                 </span>{" "}
                 <span>
                   (<a className={styles.sellerRating}>
-                    {this.state.sellerRatings.id}
+                    {this.state.sellerRatings[0].id}
                   </a>)
                 </span>
               </div>
-              <div>99.1% Positive feedback</div>
+              <div>{this.state.sellerRatings[2]}% Positive feedback</div>
               <hr />
               <div>
                 <a
@@ -62,18 +60,15 @@ class SellerInfo extends Component {
                   className={styles.sellerLink}
                   href
                 >
-                  {this.isLiked()} Save this Seller
+                  {this.state.sellers[0].isLiked ? "♥" : "♡"} Save this Seller
                 </a>
               </div>
               <div>
                 <a
                   className={styles.sellerEmail}
-                  href={
-                    "mailto:" +
-                    this.state.sellers[0].email +
-                    "?Subject=Hello%20" +
-                    this.state.sellers[0].name
-                  }
+                  href={`mailto:${
+                    this.state.sellers[0].email
+                  }?Subject=Hello%20${this.state.sellers[0].name}`}
                   target="_top"
                 >
                   Contact seller

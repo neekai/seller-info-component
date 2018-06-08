@@ -1,0 +1,46 @@
+.otherProducts {
+  width: 950px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: -1px 1px 5px grey;
+  font-family: Helvetica, sans-serif;
+}
+.more {
+  padding: 20px 10px 10px 45px;
+  font-weight: 300;
+  clear: both;
+}
+.otherProducts > div + div {
+  padding-left: 10px;
+  padding-right: 30px;
+  display: table;
+}
+.panel {
+  width: 150px;
+  height: 150px;
+  display: table-cell;
+  border: 1px solid white;
+}
+.panel:hover {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.panel:hover .item {
+  text-decoration: underline;
+  cursor: pointer;
+}
+img {
+  margin: 0 auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.indent {
+  line-height: 30px;
+}
+.shipping {
+  font-size: 12px;
+}
+.item {
+  font-weight: 200;
+}
+ul {
+  list-style-type: none;
+}

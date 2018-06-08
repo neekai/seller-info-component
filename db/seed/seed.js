@@ -7,7 +7,8 @@ const productSeed = [
     name: "Tooth Brush",
     price: 20,
     description: "Hey its a toothbrush",
-    sellerId: 1
+    sellerId: 1,
+    imageId: todo
   },
   { name: "Potato", price: 100, description: "Im a potato", sellerId: 1 },
   {

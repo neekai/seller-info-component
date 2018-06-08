@@ -6,12 +6,13 @@ const Product = db.define("product", {
   price: Sequelize.DOUBLE,
   description: Sequelize.STRING,
   sellerId: Sequelize.INTEGER,
-  imageUrl: Sequelize.INTEGER
+  imageId: Sequelize.INTEGER
 });
 
 const Seller = db.define("seller", {
   name: Sequelize.STRING,
-  email: Sequelize.STRING
+  email: Sequelize.STRING,
+  isLiked: { type: Sequelize.BOOLEAN, defaultValue: false }
 });
 
 const SellerRating = db.define("seller_rating", {
