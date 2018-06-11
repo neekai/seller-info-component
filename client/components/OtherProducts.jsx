@@ -40,7 +40,7 @@ class OtherProducts extends Component {
                 i
               ].price.toLocaleString();
             }
-            let newCopy = _.shuffle(copy).slice(0, 7);
+            let newCopy = _.shuffle(copy).slice(0, 6);
             this.setState({ compile: newCopy });
           });
       })
@@ -56,10 +56,10 @@ class OtherProducts extends Component {
               {this.state.compile &&
                 this.state.compile.map(infoData => (
                   <li className={styles.panel}>
-                    <div>
+                    <div className={styles.top}>
                       <img src={infoData.imageUrl} />
                     </div>
-                    <div className={styles.info}>
+                    <div className={styles.bottom}>
                       <div className={styles.indent} className={styles.item}>
                         {infoData.productName}
                       </div>

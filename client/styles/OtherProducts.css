@@ -5,7 +5,7 @@
   font-family: Helvetica, sans-serif;
 }
 .more {
-  padding: 20px 10px 10px 45px;
+  padding: 20px 10px 10px 48px;
   font-weight: 400;
   clear: both;
 }
@@ -28,7 +28,7 @@
   cursor: pointer;
 }
 img {
-  margin: 0 auto;
+  margin: auto;
   max-width: 100%;
   vertical-align: middle;
 }

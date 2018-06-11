@@ -9,5 +9,5 @@ render(
     <br />
     <OtherProducts />
   </div>,
-  document.getElementById("app")
+  document.getElementById("SellerInfo")
 );
