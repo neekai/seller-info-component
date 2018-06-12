@@ -4,7 +4,9 @@ const app = express();
 const PORT = 7770;
 const bodyParser = require("body-parser");
 const router = require("./router");
+const cors = require("cors");
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../static")));

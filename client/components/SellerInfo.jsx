@@ -17,21 +17,21 @@ class SellerInfo extends Component {
   }
   sellers() {
     axios
-      .get("/api/sellers")
+      .get("http://localhost:7770/api/sellers")
       .then(res => this.setState({ sellers: res.data }))
       .then(() => console.log(this.state.sellers))
       .catch(err => console.log(`Error Finding Sellers ${err}`));
   }
   sellerRatings() {
     axios
-      .get(`/api/sellerRatings/${this.state.sellers.id}`)
+      .get(`http://localhost:7770/api/sellerRatings/${this.state.sellers.id}`)
       .then(res => this.setState({ sellerRatings: res.data }))
       .then(() => console.log(`Current Ratings ${this.state.sellerRatings}`))
       .catch(err => `Error Finding Seller Ratings ${err}`);
   }
   like(id) {
     axios
-      .patch(`/api/sellerLiked/${id}`)
+      .patch(`http://localhost:7770/api/sellerLiked/${id}`)
       .then(res => this.setState({ sellers: [res.data] }))
       .catch(err => console.log(`Error Liking Seller ${err}`));
   }

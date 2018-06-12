@@ -1,5 +1,5 @@
 {
-  "name": "FrontEndCapstone",
+  "name": "seller-info-component",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "nodemon ./server/index.js",
     "react": "webpack -w",
     "seed": "node ./db/seed/seed.js",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/client/setupTests.js",
@@ -26,6 +26,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",

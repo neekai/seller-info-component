@@ -7,8 +7,7 @@ const productSeed = [
     name: "Tooth Brush",
     price: 20,
     description: "Hey its a toothbrush",
-    sellerId: 1,
-    imageId: todo
+    sellerId: 1
   },
   { name: "Potato", price: 100, description: "Im a potato", sellerId: 1 },
   {
@@ -383,8 +382,7 @@ const imageSeed = [
   }
 ];
 
-db
-  .sync({ force: true })
+db.sync({ force: true })
   .then(() => {
     Image.bulkCreate(imageSeed);
     Seller.bulkCreate(sellerSeed);

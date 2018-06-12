@@ -19,18 +19,18 @@ class OtherProducts extends Component {
   }
   sellers() {
     axios
-      .get("/api/sellers")
+      .get("http://localhost:7770/api/sellers")
       .then(res => this.setState({ sellers: res.data }))
       .then(() => console.log(`Current Seller Info ${this.state.sellers}`))
       .catch(err => console.log(`Error Finding Sellers ${err}`));
   }
   compile() {
     axios
-      .get("/api/products")
+      .get("http://localhost:7770/api/products")
       .then(res => this.setState({ products: res.data }))
       .then(() => {
         axios
-          .get("/api/productImages/")
+          .get("http://localhost:7770/api/productImages/")
           .then(res => this.setState({ images: res.data }))
           .then(() => {
             let copy = this.state.images.slice();
