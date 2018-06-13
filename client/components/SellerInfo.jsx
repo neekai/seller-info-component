@@ -57,7 +57,6 @@ class SellerInfo extends Component {
                 <a
                   onClick={() => this.like(this.state.sellers[0].id)}
                   className={styles.sellerLink}
-                  href
                 >
                   {this.state.sellers[0].isLiked ? "♥" : "♡"} Save this Seller
                 </a>

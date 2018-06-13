@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55.56% </span>
+        <span class="strong">44.44% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>10/18</span>
+        <span class='fraction'>8/18</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">20% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>1/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">46.67% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/15</span>
+        <span class='fraction'>5/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55.56% </span>
+        <span class="strong">44.44% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/18</span>
+        <span class='fraction'>8/18</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -128,8 +128,7 @@
 <a name='L80'></a><a href='#L80'>80</a>
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L83'></a><a href='#L83'>83</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,24 +150,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -187,7 +186,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -231,21 +229,21 @@ class SellerInfo extends Component {
   }
   sellers() {
     axios
-      .get("/api/sellers")
+      .get("http://localhost:7770/api/sellers")
       .then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; <span class="cstat-no" title="statement not covered" >this.setState({ sellers: res.data }))</span>
       .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >console.log(this.state.sellers))</span>
-      .catch(err =&gt; console.log(`Error Finding Sellers ${err}`));
+      .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >console.log(`Error Finding Sellers ${err}`))</span>;
   }
   sellerRatings() {
     axios
-      .get(`/api/sellerRatings/${this.state.sellers.id}`)
+      .get(`http://localhost:7770/api/sellerRatings/${this.state.sellers.id}`)
       .then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; <span class="cstat-no" title="statement not covered" >this.setState({ sellerRatings: res.data }))</span>
       .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >console.log(`Current Ratings ${this.state.sellerRatings}`))</span>
-      .catch(err =&gt; `Error Finding Seller Ratings ${err}`);
+      .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >`Error Finding Seller Ratings ${err}`)</span>;
   }
 <span class="fstat-no" title="function not covered" >  li</span>ke(id) {
 <span class="cstat-no" title="statement not covered" >    axios</span>
-      .patch(`/api/sellerLiked/${id}`)
+      .patch(`http://localhost:7770/api/sellerLiked/${id}`)
       .then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; <span class="cstat-no" title="statement not covered" >this.setState({ sellers: [res.data] }))</span>
       .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >console.log(`Error Liking Seller ${err}`))</span>;
   }
@@ -271,7 +269,6 @@ class SellerInfo extends Component {
                 &lt;a
                   onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.like(this.state.sellers[0].id)}</span>
                   className={styles.sellerLink}
-                  href
                 &gt;
                   {this.state.sellers[0].isLiked ? "♥" : "♡"} Save this Seller
                 &lt;/a&gt;
@@ -301,7 +298,7 @@ export default SellerInfo;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 11 2018 16:07:19 GMT-0700 (PDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 12 2018 18:38:05 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

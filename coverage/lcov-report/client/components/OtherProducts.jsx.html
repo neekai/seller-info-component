@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.86% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/21</span>
+        <span class='fraction'>7/21</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">35.71% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/14</span>
+        <span class='fraction'>5/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.86% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/21</span>
+        <span class='fraction'>7/21</span>
       </div>
     </div>
     <p class="quiet">
@@ -156,29 +156,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -239,18 +239,18 @@ class OtherProducts extends Component {
   }
   sellers() {
     axios
-      .get("/api/sellers")
+      .get("http://localhost:7770/api/sellers")
       .then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; <span class="cstat-no" title="statement not covered" >this.setState({ sellers: res.data }))</span>
       .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >console.log(`Current Seller Info ${this.state.sellers}`))</span>
-      .catch(err =&gt; console.log(`Error Finding Sellers ${err}`));
+      .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >console.log(`Error Finding Sellers ${err}`))</span>;
   }
   compile() {
     axios
-      .get("/api/products")
+      .get("http://localhost:7770/api/products")
       .then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; <span class="cstat-no" title="statement not covered" >this.setState({ products: res.data }))</span>
       .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >        axios</span>
-          .get("/api/productImages/")
+          .get("http://localhost:7770/api/productImages/")
           .then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; <span class="cstat-no" title="statement not covered" >this.setState({ images: res.data }))</span>
           .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
             let copy = <span class="cstat-no" title="statement not covered" >this.state.images.slice();</span>
@@ -264,7 +264,7 @@ class OtherProducts extends Component {
 <span class="cstat-no" title="statement not covered" >            this.setState({ compile: newCopy });</span>
           });
       })
-      .catch(err =&gt; console.log(err));
+      .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >console.log(err))</span>;
   }
   render() {
     return (
@@ -310,7 +310,7 @@ export default OtherProducts;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 11 2018 16:07:19 GMT-0700 (PDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 12 2018 18:38:05 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>
