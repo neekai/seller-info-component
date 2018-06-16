@@ -48,6 +48,7 @@
     "webpack": "^4.10.2"
   },
   "devDependencies": {
+    "grunt-aws": "^0.6.2",
     "webpack-cli": "^2.1.4"
   }
 }

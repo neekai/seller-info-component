@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import _ from "lodash";
 import styles from "../styles/OtherProducts.css";
-
+const dburl = "http://18.191.155.175:7770";
 class OtherProducts extends Component {
   constructor() {
     super();
@@ -19,18 +19,18 @@ class OtherProducts extends Component {
   }
   sellers() {
     axios
-      .get("http://localhost:7770/api/sellers")
+      .get(`${dburl}/api/sellers`)
       .then(res => this.setState({ sellers: res.data }))
       .then(() => console.log(`Current Seller Info ${this.state.sellers}`))
       .catch(err => console.log(`Error Finding Sellers ${err}`));
   }
   compile() {
     axios
-      .get("http://localhost:7770/api/products")
+      .get(`${dburl}/api/products`)
       .then(res => this.setState({ products: res.data }))
       .then(() => {
         axios
-          .get("http://localhost:7770/api/productImages/")
+          .get(`${dburl}/api/productImages/`)
           .then(res => this.setState({ images: res.data }))
           .then(() => {
             let copy = this.state.images.slice();

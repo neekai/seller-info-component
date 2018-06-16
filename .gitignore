@@ -3,3 +3,5 @@ static/bundle.js
 assests-s3
 Gruntfile.js
 coverage
+credentials.json
+randomPair.pem
