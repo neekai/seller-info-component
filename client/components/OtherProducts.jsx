@@ -48,35 +48,28 @@ class OtherProducts extends Component {
   }
   render() {
     return (
-      <div>
-        <div className={styles.otherProducts}>
-          <div className={styles.more}>More from this seller</div>
-          <div>
-            <ul>
-              {this.state.compile &&
-                this.state.compile.map(infoData => (
-                  <li className={styles.panel}>
-                    <div className={styles.top}>
-                      <img src={infoData.imageUrl} />
-                    </div>
-                    <div className={styles.bottom}>
-                      <div className={styles.indent} className={styles.item}>
-                        {infoData.productName}
-                      </div>
-                      <div className={styles.indent}>
-                        ${infoData.productPrice.toLocaleString()}
-                      </div>
-                      <div
-                        className={styles.indent}
-                        className={styles.shipping}
-                      >
-                        Free shipping
-                      </div>
-                    </div>
-                  </li>
-                ))}
-            </ul>
-          </div>
+      <div className={styles.otherProducts}>
+        <div className={styles.more}>More from this seller</div>
+        <div className={styles.products}>
+          {this.state.compile && this.state.compile.map(infoData => (
+            <div className={styles.panel}>
+              <div className={styles.top}>
+                <img src={infoData.imageUrl} />
+              </div>
+              <div className={styles.middle}></div>
+              <div className={styles.bottom}>
+                <div className={styles.indent} className={styles.item}>
+                  {infoData.productName}
+                </div>
+                <div className={styles.indent}>
+                  ${infoData.productPrice.toLocaleString()}
+                </div>
+                <div className={styles.indent} className={styles.shipping}>
+                  Free shipping
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     );
