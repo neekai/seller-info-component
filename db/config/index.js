@@ -1,11 +1,32 @@
-const Sequelize = require("sequelize");
-const db = new Sequelize("frontend_capstone", "colemichaels", "", {
-  host: "db",
-  dialect: "postgresql"
-});
+const promise = require('bluebird');
 
-db.authenticate()
-  .then(() => console.log("Database connection established"))
-  .catch(err => console.error("Unable to connect to database:", err));
+const options = {
+  promiseLib: promise
+};
 
-module.exports.db = db;
+// const connectionString = {
+//   host: 'localhost',
+//   database: 'seller_info',
+//   user: 'nickcai',
+//   password: ''
+// };
+
+const pgp = require('pg-promise')(options);
+const connectionString = 'postgres://localhost:5432/seller_info';
+const db = pgp(connectionString);
+
+
+
+module.exports = { db };
+
+// const Sequelize = require("sequelize");
+// const db = new Sequelize("seller_info", "nickcai", "", {
+//   host: "localhost",
+//   dialect: "postgresql"
+// });
+
+// db.authenticate()
+//   .then(() => console.log("Database connection established"))
+//   .catch(err => console.error("Unable to connect to database:", err));
+
+// module.exports.db = db;

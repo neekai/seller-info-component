@@ -54,7 +54,7 @@ class OtherProducts extends Component {
           {this.state.compile && this.state.compile.map(infoData => (
             <div className={styles.panel}>
               <div className={styles.top}>
-                <img src={infoData.imageUrl} />
+                <img className={styles.productimg} src={infoData.imageUrl} />
               </div>
               <div className={styles.middle}></div>
               <div className={styles.bottom}>
