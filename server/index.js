@@ -19,6 +19,9 @@ app.use("/", router);
 app.listen(PORT, () => console.log(`Server Listening On ${PORT}...`));
 // require('../db/fakeSellerInfoScript');
 // require('../db/fakeRatingsScript');
+// require('../db/fakeProductsScript');
+// require('../db/fakeImagesScript');
+
 
 
 

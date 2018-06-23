@@ -5,5 +5,4 @@ Gruntfile.js
 coverage
 credentials.json
 randomPair.pem
-data/sellerInfo.txt
-data/sellerRating.txt
+data/

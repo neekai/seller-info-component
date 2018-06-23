@@ -17,7 +17,9 @@ function writeTenMillionTimes(){
         wstream.write(randomName + ',' + randomEmail + ',' + raterID + '\n', (err) => {
           if(err){
             console.log("There was an err writing the file", err);
-          } 
+          } else {
+            console.log('successfully generated data');
+          }
       });
     } else {
       const randomName = faker.name.findName();

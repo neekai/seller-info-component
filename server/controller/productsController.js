@@ -9,7 +9,7 @@ const productsController = {
   ONE: (req, res) => {
     // const productID = req.body.id;
     db.one('select * from products where product_id=$1', req.params.id)
-      .then(data => {res.status(200).send(data); console.log("Successfully fetched product with ID:", productID)})
+      .then(data => {res.status(200).send(data); console.log("Successfully fetched product with ID:", req.params.id)})
       .catch(err => {res.status(404); console.log("Failed to fetch product with ID")})
   },
   AllFromUser: (req, res) => {
