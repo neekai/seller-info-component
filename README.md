@@ -18,3 +18,5 @@ drop table t
 adding table constraints
 
 ALTER TABLE ratings add CONSTRAINT seller_id_fkey FOREIGN key (seller_id) REFERENCES sellers (seller_id)
+
+ALTER TABLE ratings DROP CONSTRAINT seller_id_fkey, add CONSTRAINT seller_id_fkey FOREIGN key (seller_id) REFERENCES sellers (seller_id) ON DELETE cascade ON UPDATE cascade

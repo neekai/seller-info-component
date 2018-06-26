@@ -21,7 +21,9 @@ app.listen(PORT, () => console.log(`Server Listening On ${PORT}...`));
 // require('../db/fakeRatingsScript');
 // require('../db/fakeProductsScript');
 // require('../db/fakeImagesScript');
-
+// require('../db/mongoSellers');
+// require('../db/mongoProducts');
+// require('../db/mongoImages');
 
 
 

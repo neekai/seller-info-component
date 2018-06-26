@@ -1,7 +1,13 @@
 const fs = require('graceful-fs');
 const faker = require('faker');
-const productInfoDataFile = __dirname + '/../data/products.txt';
+const productInfoDataFile = __dirname + '/../data/mongoProducts.txt';
 const wstream = fs.createWriteStream(productInfoDataFile);
+
+let indexID = 1; 
+
+index = () => (
+  indexID++
+);
 
 function writeTenMillionTimes(){
   let i = 10;
@@ -15,7 +21,7 @@ function writeTenMillionTimes(){
         const productPrice = faker.commerce.price();
         const productDescription = faker.lorem.sentences();
         const sellerID = Math.ceil(Math.random()*10000000);
-        wstream.write(productName + ',' + productPrice + ',' + productDescription + ',' + sellerID + '\n', (err) => {
+        wstream.write(index() + ',' + productName + ',' + productPrice + ',' + productDescription + ',' + sellerID + '\n', (err) => {
           if(err){
             console.log("There was an err writing the file", err);
           } else {
@@ -27,7 +33,7 @@ function writeTenMillionTimes(){
         const productPrice = faker.commerce.price();
         const productDescription = faker.lorem.sentences();
         const sellerID = Math.ceil(Math.random()*10000000);
-        ok = wstream.write(productName + ',' + productPrice + ',' + productDescription + ',' + sellerID + '\n', (err) => {
+        ok = wstream.write(index() + ',' + productName + ',' + productPrice + ',' + productDescription + ',' + sellerID + '\n', (err) => {
         if(err){
           console.log("There was an err writing the file", err);
           } 
@@ -40,6 +46,6 @@ function writeTenMillionTimes(){
   }
 };
 
-writeTenMillionTimes();
+// writeTenMillionTimes();
 
 

@@ -34,6 +34,9 @@ router.route("/api/seller/:id/products")
       .get(productsController.AllFromUser)
       .post(productsController.SAVE);
 
+router.route("/api/sller/:sellerID/products/:productID")
+      .get()
+
 
     
 
