@@ -20,3 +20,5 @@ adding table constraints
 ALTER TABLE ratings add CONSTRAINT seller_id_fkey FOREIGN key (seller_id) REFERENCES sellers (seller_id)
 
 ALTER TABLE ratings DROP CONSTRAINT seller_id_fkey, add CONSTRAINT seller_id_fkey FOREIGN key (seller_id) REFERENCES sellers (seller_id) ON DELETE cascade ON UPDATE cascade
+
+ALTER TABLE sellers add CONSTRAINT saved_by_fkey FOREIGN key (saved_by) REFERENCES sellers (seller_id) "self-referencing"
