@@ -7,9 +7,9 @@ const productsController = {
       .catch(err => {res.status(404); console.log("Failed to fetch all products..", err)});
   },
   ONE: (req, res) => {
-    // const productID = req.body.id;
-    db.one('select * from products where product_id=$1', req.params.id)
-      .then(data => {res.status(200).send(data); console.log("Successfully fetched product with ID:", req.params.id)})
+    const productID = Math.ceil(Math.random()*10000000);
+    db.one('select * from products where product_id=$1', productID)
+      .then(data => {res.status(200).send(data); console.log("Successfully fetched product with ID:", productID)})
       .catch(err => {res.status(404); console.log("Failed to fetch product with ID")})
   },
   AllFromUser: (req, res) => {
@@ -23,6 +23,12 @@ const productsController = {
       .then(()=> {res.status(201).send("Added product"); console.log("Successfully added product")})
       .catch(err => {res.status(400); console.log("Failed to add product", err)});
   },
+  UPDATE: (req, res) => {
+    db.none('update products set product_name=$1, price=$2, product_description=$3 where product_id=$4', [req.body.product_name, req.body.price, req.body.product_description, req.params.id])
+      .then(() => {res.status(200).send("Updated product info"); console.log("Successfully updated product")})
+      .catch(err => {res.status(400); console.log("Failed to update product")});
+  },
+
   REMOVE: (req, res) => {
     const productID = req.params.id;
     db.result('delete from products where product_id=$1', productID)

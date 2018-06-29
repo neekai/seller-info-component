@@ -24,3 +24,5 @@ ALTER TABLE ratings DROP CONSTRAINT seller_id_fkey, add CONSTRAINT seller_id_fke
 ALTER TABLE sellers add CONSTRAINT saved_by_fkey FOREIGN key (saved_by) REFERENCES sellers (seller_id) "self-referencing"
 
 create index on images(product_id);
+
+starting mongod cmd <mongod --dbpath ./mongoDB/data>

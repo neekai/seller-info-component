@@ -7,26 +7,36 @@ class SellerInfo extends Component {
     super();
     this.state = {
       sellers: false,
-      sellerRatings: false
+      sellerRatings: false,
+      liked: false
     };
   }
   componentDidMount() {
     this.sellers();
     this.sellerRatings();
-    this.like;
+    // this.like(this.setLike);
   }
   sellers() {
     axios
-      .get(`${dburl}/api/sellers`)
-      .then(res => this.setState({ sellers: res.data }))
-      .then(() => console.log(this.state.sellers))
+      // .get(`${dburl}/api/sellers`)
+      .get("/api/sellers")
+      .then(res => {console.log(res.data); this.setState({ sellers: res.data })})
       .catch(err => console.log(`Error Finding Sellers ${err}`));
   }
   sellerRatings() {
     axios
-      .get(`${dburl}/api/sellerRatings/${this.state.sellers.id}`)
-      .then(res => this.setState({ sellerRatings: res.data }))
-      .then(() => console.log(`Current Ratings ${this.state.sellerRatings}`))
+      // .get(`${dburl}/api/sellerRatings/${this.state.sellers.id}`)
+      .get("/api/ratings")
+      .then(res => {
+        console.log("suh", res.data[0].round);
+        if (res.data[0].round === null) {
+          console.log('if');
+          this.setState({ sellerRatings: 5 });
+        } else {
+          console.log("penis", res.data[0].round);
+          this.setState({ sellerRatings: res.data[0].round });
+        }
+      })
       .catch(err => `Error Finding Seller Ratings ${err}`);
   }
   like(id) {
@@ -35,6 +45,22 @@ class SellerInfo extends Component {
       .then(res => this.setState({ sellers: [res.data] }))
       .catch(err => console.log(`Error Liking Seller ${err}`));
   }
+
+  //--------------------------------------------------------
+
+  // like(callback){
+  //   const liked = [true, false];
+  //   const index = Math.floor(Math.random()*2);
+  //   callback(liked[index]);
+  // }
+
+  // setLike(isLiked){
+  //   this.setState({
+  //     liked: isLiked
+  //   })
+  // }
+
+
   render() {
     return (
       <div>
@@ -43,7 +69,7 @@ class SellerInfo extends Component {
             <div className={styles.sellerInfo}>
               <div>
                 <span className={styles.sellerName}>
-                  {this.state.sellers[0].name}
+                  {this.state.sellers.seller_name}
                 </span>{" "}
                 <span>
                   (<a className={styles.sellerRating}>
@@ -55,18 +81,18 @@ class SellerInfo extends Component {
               <hr />
               <div>
                 <a
-                  onClick={() => this.like(this.state.sellers[0].id)}
+                  onClick={() => this.like(this.state.sellers)}
                   className={styles.sellerLink}
                 >
-                  {this.state.sellers[0].isLiked ? "♥" : "♡"} Save this Seller
+                  {this.state.sellers.liked ? "♥" : "♡"} Save this Seller
                 </a>
               </div>
               <div>
                 <a
                   className={styles.sellerEmail}
                   href={`mailto:${
-                    this.state.sellers[0].email
-                  }?Subject=Hello%20${this.state.sellers[0].name}`}
+                    this.state.sellers.email
+                  }?Subject=Hello%20${this.state.sellers.name}`}
                   target="_top"
                 >
                   Contact seller

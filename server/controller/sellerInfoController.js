@@ -7,7 +7,7 @@ const sellerInfoController = {
       .catch(err => {res.status(404); console.log('There was an err fetching all sellers', err)});
   },
   ONE: (req, res) => {
-    const sellerID = req.params.id;
+    const sellerID = Math.ceil(Math.random()*10000000);
     db.one('select * from sellers where seller_id=$1', sellerID)
       .then(data => {res.status(200).send(data); console.log("Successfully fetched seller with ID:", sellerID)})
       .catch(err => {res.status(404); console.log("There was an err fetching seller with ID:", sellerID)});
@@ -18,7 +18,7 @@ const sellerInfoController = {
       .catch(err => {res.status(400); console.log("There was an err saving seller", err)});
   },
   UPDATE: (req, res) => {
-    db.none('update sellers set seller_name=$1, email=$2 where seller_id=$3', [req.body.seller_name, req.body.email, req.params.id])
+    db.none('update sellers set seller_name=$1, email=$2 where seller_id=$3', [req.body.seller_name, req.body.email, req.body.seller_id])
       .then(() => {res.status(200).send("Updated seller"); console.log("Successfully updated seller")})
       .catch(err => {res.status(400); console.log("There was an err updating seller", err)});
   },
