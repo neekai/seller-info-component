@@ -5,7 +5,7 @@ const imageController = {
     const productID = Math.ceil(Math.random()*10000000);
     console.log(productID);
     db.any("select * from images where product_id=$1", productID)
-      .then(data => {res.status(200).send(data); console.log("Successfully fetched image with ID:", productID)})
+      .then(data => {res.status(200).send(data); })
       .catch(err => {res.status(404); console.log("Failed to retrieve images")});
   },
   REMOVE: (req, res) => {
@@ -22,4 +22,5 @@ const imageController = {
   }
 }
 
+// console.log("Successfully fetched image with ID:", productID)
 module.exports = { imageController };

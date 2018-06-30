@@ -5,7 +5,7 @@ const sellerRatingController = {
     const sellerID = Math.ceil(Math.random()*10000000);
     db.any('select round(AVG(rating),1) from ratings where seller_id=$1', sellerID)
       // db.any('select rating from ratings where seller_id=$1', sellerID)
-      .then(data => {res.status(200).send(data); console.log("Successfully fetched rating for seller with ID:", sellerID)})
+      .then(data => {res.status(200).send(data); })
       .catch(err => {res.status(404); console.log("Failed to fetch rating for seller with ID:", sellerID)});
   },
   UPDATE: (req, res) => {
@@ -17,5 +17,7 @@ const sellerRatingController = {
   }
   
 }
+
+// console.log("Successfully fetched rating for seller with ID:", sellerID)
 
 module.exports = { sellerRatingController };

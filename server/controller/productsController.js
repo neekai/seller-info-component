@@ -9,7 +9,7 @@ const productsController = {
   ONE: (req, res) => {
     const productID = Math.ceil(Math.random()*10000000);
     db.one('select * from products where product_id=$1', productID)
-      .then(data => {res.status(200).send(data); console.log("Successfully fetched product with ID:", productID)})
+      .then(data => {res.status(200).send(data); })
       .catch(err => {res.status(404); console.log("Failed to fetch product with ID")})
   },
   AllFromUser: (req, res) => {
@@ -26,7 +26,7 @@ const productsController = {
   UPDATE: (req, res) => {
     db.none('update products set product_name=$1, price=$2, product_description=$3 where product_id=$4', [req.body.product_name, req.body.price, req.body.product_description, req.params.id])
       .then(() => {res.status(200).send("Updated product info"); console.log("Successfully updated product")})
-      .catch(err => {res.status(400); console.log("Failed to update product")});
+      .catch(err => {res.status(400); console.log("Failed to update product")})
   },
 
   REMOVE: (req, res) => {
@@ -36,5 +36,6 @@ const productsController = {
       .catch(err => {res.status(400); console.log("Failed to delete product..", err)});
   }
 }
+//console.log("Successfully fetched product with ID:", productID)
 
 module.exports = { productsController };

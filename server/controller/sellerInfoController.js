@@ -9,7 +9,7 @@ const sellerInfoController = {
   ONE: (req, res) => {
     const sellerID = Math.ceil(Math.random()*10000000);
     db.one('select * from sellers where seller_id=$1', sellerID)
-      .then(data => {res.status(200).send(data); console.log("Successfully fetched seller with ID:", sellerID)})
+      .then(data => {res.status(200).send(data); })
       .catch(err => {res.status(404); console.log("There was an err fetching seller with ID:", sellerID)});
   },
   SAVE: (req, res) => {
@@ -29,6 +29,8 @@ const sellerInfoController = {
       .catch(err => {res.status(400); console.log("There was an err removing seller with ID:", sellerID)});
   }
 }
+
+// console.log("Successfully fetched seller with ID:", sellerID)
 
 module.exports = { sellerInfoController };
 

@@ -8,7 +8,7 @@ class OtherProducts extends Component {
     super();
     this.state = {
       sellers: false,
-      images: false,
+      images: [],
       products: false,
       compile: false
     };
@@ -16,7 +16,7 @@ class OtherProducts extends Component {
   componentDidMount() {
     this.sellers();
     this.compile();
-    this.getImages();
+    this.getImage();
   }
   sellers() {
     axios
@@ -54,8 +54,9 @@ class OtherProducts extends Component {
   getImage(){
     axios.get('/api/images')
           .then(res => {
+            console.log("image", res.data)
             this.setState({
-              images: res.data
+              images: [...res.data]
             })
           })
           .catch(err => console.log("Failed to retrieve images", err));
@@ -66,18 +67,18 @@ class OtherProducts extends Component {
       <div className={styles.otherProducts}>
         <div className={styles.more}>More from this seller</div>
         <div className={styles.products}>
-        {this.state.compile && this.state.images.map(infoData => (
+        {this.state.images.map(image => (
           <div className={styles.panel}>
             <div className={styles.top}>
-              <img className={styles.productimg} src={infoData.imageUrl} />
+              <img className={styles.productimg} src={image.image_url} />
             </div>
             <div className={styles.middle}></div>
             <div className={styles.bottom}>
               <div className={styles.indent} className={styles.item}>
-                {infoData.productName}
+                {this.state.products.product_name}
               </div>
               <div className={styles.indent}>
-                ${infoData.productPrice.toLocaleString()}
+                ${this.state.products.price}
               </div>
               <div className={styles.indent} className={styles.shipping}>
                 Free shipping

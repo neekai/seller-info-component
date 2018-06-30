@@ -73,11 +73,11 @@ class SellerInfo extends Component {
                 </span>{" "}
                 <span>
                   (<a className={styles.sellerRating}>
-                    {this.state.sellerRatings[0].id}
+                    {this.state.sellerRatings}
                   </a>)
                 </span>
               </div>
-              <div>{this.state.sellerRatings[2]}% Positive feedback</div>
+              <div>{this.state.sellerRatings/5*100}% Positive feedback</div>
               <hr />
               <div>
                 <a

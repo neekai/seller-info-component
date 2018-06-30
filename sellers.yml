@@ -1,0 +1,70 @@
+config:
+  target: 'http://localhost:3030'
+  processor: "./generateRandomData.js"
+  phases:
+    - duration: 60
+      arrivalRate: 100
+    # - duration: 60
+    #   arrivalRate: 100
+    #   rampTo: 5000
+scenarios:
+  - name: "get them data"
+    flow:
+      - loop:
+        - get:
+            url: "/api/sellers"
+        - get:
+            url: "/api/ratings"
+        - get: 
+            url: "/api/products"
+        - get:
+            url: "/api/images"
+        count: 20
+  # - name: "Register a seller"
+  #   flow:
+  #     - loop:
+  #       - function: "sellerInfo"
+  #       - post: 
+  #           url: "/api/sellers"
+  #           json: 
+  #             seller_name: "{{ name }}"
+  #             email: "{{ email }}"
+  #             saved_by: "{{ saved_by }}"
+        # - log: "Sent a request to /api/sellers with {{ name }}, {{ email }}, {{ saved_by }}"
+        # count: 2
+  # - name: "Rate a seller"
+  #   flow:
+  #     - loop:
+  #       - function: "ratingInfo"
+  #       - post:
+  #           url: "/api/ratings"
+  #           json: 
+  #             rating: "{{ rating }}"
+  #             rater: "{{ rater }}"
+  #             seller_id: "{{ seller_id }}"
+  #       count: 2
+        # - log: "Sent a request to /api/ratings with {{ rating }}, {{ rater }}, {{ seller_id }}"
+  # - name: "Add a product"
+  #   flow:
+  #     - loop:
+  #       - function: "productInfo"
+  #       - post:
+  #           url: "/api/products"
+  #           json:
+  #             product_name: "{{ product_name }}"
+  #             price: "{{ price }}"
+  #             product_description: "{{ product_description }}"
+  #             seller_id: "{{ seller_id }}"
+  #       count: 2
+        # - log: "Sent a request to /api/products with {{ product_name }}, {{ price }}, {{ product_description }}, {{ seller_id }}"
+  # - name: "Add an image"
+  #   flow:
+  #     - loop:
+  #       - function: "imageInfo"
+  #       - post:
+  #           url: "/api/images"
+  #           json:
+  #             image_url: "{{ image_url }}"
+  #             product_id: "{{ product_id }}"
+  #       count: 2
+        # - log: "Sent a request to /api/images with {{ image_url }}, {{ product_id }}" 
