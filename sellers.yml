@@ -3,7 +3,7 @@ config:
   processor: "./generateRandomData.js"
   phases:
     - duration: 60
-      arrivalRate: 100
+      arrivalRate: 10
     # - duration: 60
     #   arrivalRate: 100
     #   rampTo: 5000
@@ -19,7 +19,7 @@ scenarios:
             url: "/api/products"
         - get:
             url: "/api/images"
-        count: 20
+        count: 10
   # - name: "Register a seller"
   #   flow:
   #     - loop:
